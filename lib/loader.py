@@ -31,7 +31,7 @@ def loadtest(FN, delim='|'):
     alias for load() for testing data
     """
     return load(FN, delim, hasY=False)
-def loadTrain(FN, delim='|'):
+def loadtrain(FN, delim='|'):
     """
     alias for load() for training data
     """

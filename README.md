@@ -11,3 +11,7 @@ Group members:
 Dependencies:
 * Python 3.5.1
 * Python-scikit-learn 0.17-2
+
+Directory Structure:
+* lib - Put libraries in here (e.g. how to load data)
+* data - Put data here

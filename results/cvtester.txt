@@ -1,4 +1,3 @@
-
 5-fold CV scores of sklearn learners with default parameters
 
 Hinge CV average: 0.630465094396

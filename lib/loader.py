@@ -20,19 +20,36 @@ def load(FN, delim='|', hasY=True):
     for i in lines.readlines():
         i.strip()
         i = i.split(delim)
-        xs.append([ int(j) for j in i[0:len(i) - 1] ])
         if hasY == True:
+            xs.append([ int(j) for j in i[0:len(i) - 1] ])
             ys.append(int(i[len(i) - 1]))
+        else:
+            xs.append([ int(j) for j in i[0:len(i)] ])
     if hasY == True:
         return xs, ys
     return xs
+
 def loadtest(FN, delim='|'):
     """
     alias for load() for testing data
     """
     return load(FN, delim, hasY=False)
+
 def loadtrain(FN, delim='|'):
     """
     alias for load() for training data
     """
     return load(FN, delim, hasY=True)
+
+def write(FN, res, delim=','):
+    """
+    Prints data to desired file format
+
+    Input: FN - filename to print to
+          res - array of prediction results
+        delim - delimiter to split results, default: ','
+    """
+    f = open(FN, 'w')
+    f.write("Id,Prediction\n")
+    for i in range(len(res)):
+        f.write(delim.join([str(i + 1), str(res[i])]) + '\n')

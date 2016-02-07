@@ -1,0 +1,10 @@
+5-fold CV scores of sklearn learners with default parameters
+
+Hinge CV average: 0.630465094396
+Log CV average: 0.606111439024
+Decision Tree average: 0.632369840007
+Random Forest average: 0.648846459825
+Bagging average: 0.647411342361
+AdaBoost average: 0.64001420005
+SVM average: 0.60420241629
+Linear SVM average: 0.60420241629

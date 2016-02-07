@@ -15,3 +15,5 @@ Dependencies:
 Directory Structure:
 * lib - Put libraries in here (e.g. how to load data)
 * data - Put data here
+* predictions - Put predictions submitted to Kaggle here, as well as code used to generate them
+    * Example run: python -m predictions.Predictions1

@@ -9,3 +9,5 @@ if __name__ == '__main__':
     clf = ens.RandomForestClassifier(criterion='entropy', n_estimators=20)
     clf.fit(trainx, trainy)
     ld.write('predictions/Prediction1.txt', clf.predict(testx))
+
+# Score: 0.52515

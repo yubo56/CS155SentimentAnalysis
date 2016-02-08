@@ -1,0 +1,27 @@
+Run 1
+    parameters = {'max_features': np.arange(0.05, 0.82, 0.02),
+        'min_samples_split': np.arange(1, 22, 2),}
+    mdl = ens.RandomForestClassifier(n_estimators=100, oob_score=True,
+        n_jobs=-1)
+
+    mean: 0.68847, std: 0.01101, params: {'min_samples_split': 7,
+        'max_features': 0.05},
+
+
+Run 2
+    parameters = {'max_features': np.arange(0.005, 0.051, 0.005),
+            'min_samples_split': np.arange(3, 12, 1),}
+    mdl = ens.RandomForestClassifier(n_estimators=150, n_jobs=-1)
+
+    mean: 0.69062, std: 0.00567, params: {'max_features': 0.045,
+        'min_samples_split': 9},
+
+
+Run 3
+    parameters = {'max_features': np.arange(0.04, 0.051, 0.0005),
+            'min_samples_split': np.arange(5, 12, 1),
+            'n_estimators': np.arange(100, 501, 50)}
+    mdl = ens.RandomForestClassifier(n_jobs=-1)
+
+    mean: 0.69301, std: 0.00939, params: {'n_estimators': 450, 'max_features':
+        0.0420, 'min_samples_split': 7},

@@ -1,16 +1,17 @@
 #!/usr/bin/env python
-# Second prediction, after a bit of tweaking, optimized over max_fetaures,
-# min_samples_split, implemented rudimentary idf
+# prediction 3, with gridsearch'd parameters
+
 import lib.loader as ld
 import sklearn.ensemble as ens
 import sklearn.feature_extraction.text as tfidf
 
 if __name__ == '__main__':
+    ens.RandomForestClassifier(n_jobs=-1)
     trainx, trainy = ld.loadtrain('data/trainingdata.txt')
     testx = ld.loadtest('data/testingdata.txt')
     trainx2 = tfidf.TfidfTransformer().fit_transform(trainx)
 
-    clf = ens.RandomForestClassifier(criterion='entropy', n_estimators=100,
-            max_features=0.38, min_samples_split=30)
+    clf = ens.RandomForestClassifier(max_features=0.0420, criterion='entropy',
+            n_estimators=5000, min_samples_split=7)
     clf.fit(trainx2, trainy)
-    ld.write('predictions/Prediction2.txt', clf.predict(testx))
+    ld.write('predictions/Prediction3.txt', clf.predict(testx))

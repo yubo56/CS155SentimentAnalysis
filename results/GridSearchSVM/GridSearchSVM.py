@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-# uses GridSearchCV to optimize RandomForestClassifier
+# uses GridSearchCV to optimize SVM
 import numpy as np
-import sklearn.ensemble as ens
+import sklearn.svm as svm
 import sklearn.grid_search as gs
 import lib.loader as ld
 import sklearn.feature_extraction.text as tfidf
@@ -9,11 +9,10 @@ import sklearn.feature_extraction.text as tfidf
 # training data
 trainx, trainy = ld.loadtrain('data/trainingdata.txt')
 trainx2 = tfidf.TfidfTransformer().fit_transform(trainx)
-parameters = {'max_features': np.arange(0.04, 0.051, 0.0005),
-        'min_samples_split': np.arange(5, 12, 1),
-        'n_estimators': np.arange(100, 501, 50)}
-mdl = ens.RandomForestClassifier(n_jobs=-1)
-clf = gs.GridSearchCV(mdl, parameters)
+parameters = {'C': np.arange(1, 101, 5),
+        'penalty': ['l2', 'l1']}
+mdl = svm.LinearSVC(dual=False)
+clf = gs.GridSearchCV(mdl, parameters, n_jobs=-1, cv=5)
 clf.fit(trainx2, trainy)
 
 # print results

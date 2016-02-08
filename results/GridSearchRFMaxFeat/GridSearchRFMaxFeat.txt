@@ -17,7 +17,7 @@ Run 2
         'min_samples_split': 9},
 
 
-Run 3
+Run 3 - 0.51
     parameters = {'max_features': np.arange(0.04, 0.051, 0.0005),
             'min_samples_split': np.arange(5, 12, 1),
             'n_estimators': np.arange(100, 501, 50)}

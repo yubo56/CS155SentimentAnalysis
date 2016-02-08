@@ -27,7 +27,7 @@ if __name__ == '__main__':
         ]
 
     # get cv scores
-    scores = [cv.cross_val_score(i, trainx, trainy, cv=5) for i in clfs]
+    scores = [cv.cross_val_score(i, trainx, y=trainy, cv=5) for i in clfs]
 
     # print scores
     print("Hinge CV average: " + str(np.mean(scores[0])))

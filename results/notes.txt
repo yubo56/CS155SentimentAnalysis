@@ -1,0 +1,2 @@
+max_features            0.25 - 0.4ish   0.38
+min_samples_split       25-40           30

@@ -12,7 +12,7 @@ if __name__ == '__main__':
     trainx2 = tfidf.TfidfTransformer().fit_transform(trainx)
     testx2 = tfidf.TfidfTransformer().fit_transform(testx)
 
-    clf = svm.LinearSVC(dual=False, C=1000)
+    clf = svm.LinearSVC( C=0.1)
     clf.fit(trainx2, trainy)
     ld.write('predictions/Prediction4.txt', clf.predict(testx2))
 

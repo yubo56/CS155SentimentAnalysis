@@ -17,6 +17,7 @@ Directory Structure:
 * data - Put data here
 * predictions - Put predictions submitted to Kaggle here, as well as code used to generate them
     * Example run: python -m predictions.Predictions1
+    * Predictions 1-5 were run on incorrect dataset somehow
 * results - Folder to contain tests such as CV parameter scans
 
 To run results, be in root directory and run python -m foo.bar, where directory stucture is foo/bar.py

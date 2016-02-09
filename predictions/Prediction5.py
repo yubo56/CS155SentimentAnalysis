@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # prediction 3 with more features. Totally guessing by now
 
+import numpy as np
 import lib.loader as ld
 import sklearn.ensemble as ens
 import sklearn.feature_extraction.text as tfidf

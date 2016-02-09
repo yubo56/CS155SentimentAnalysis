@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import numpy as np
 def load(FN, delim='|', hasY=True):
     """
     loads data from a file into X, Y variables. Let N be number of rows and M
@@ -27,7 +28,8 @@ def load(FN, delim='|', hasY=True):
             xs.append([ int(j) for j in i[0:len(i)] ])
     if hasY == True:
         return xs, ys
-    return xs
+    else:
+        return xs
 
 def loadtest(FN, delim='|'):
     """
@@ -52,4 +54,5 @@ def write(FN, res, delim=','):
     f = open(FN, 'w')
     f.write("Id,Prediction\n")
     for i in range(len(res)):
-        f.write(delim.join([str(i + 1), str(res[i])]) + '\n')
+        f.write(delim.join([str(i + 1), str(int(res[i]))]) + '\n')
+    f.close()

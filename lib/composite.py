@@ -96,8 +96,6 @@ class CompositeCV(object):
         appends model to Composite
         :return: agreement with __trainy of cv
         """
-        print("\tNumber classifiers: " + str(len(self.clfs)) + "\t Last type: "
-                + type(clf).__name__)
         cvpreds = list()            # store current predictions
         # generate cv predictions
         for i in range(len(self.__cv)):
@@ -111,6 +109,9 @@ class CompositeCV(object):
                 // ((len(self.clfs) + 1) // 2 + 1) # new cv preds
         if self.diff(new_preds, self.__trainy) < \
                 self.diff(old_preds, self.__trainy): # if num differences decreases
+            print("\tNumber classifiers: " + str(len(self.clfs)) + "\t Last type: "
+                    + type(clf).__name__ + "\tCV: " + str(1 - self.diff(new_preds,
+                        self.__trainy) / len(self.__trainy)))
             # change cv, refit and append
             self.__cvpreds += cvpreds
             clf.fit(self.__trainx, self.__trainy)
@@ -121,6 +122,8 @@ class CompositeCV(object):
 
             return self.diff(new_preds, self.__trainy) # return cv agreement
         else:
+            print("\tRejected\t\tNumber classifiers: " + str(len(self.clfs)) + "\t Last type: "
+                    + type(clf).__name__)
             return -1 # do not add
 
     def predict(self):

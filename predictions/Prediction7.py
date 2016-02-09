@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # loop until num_consec zeroes
 import numpy as np
-from pickle import Pickler
 import random as r
 
 import lib.loader as ld
@@ -15,8 +14,8 @@ import sklearn.feature_extraction.text as tfidf
 
 if __name__ == '__main__':
     num_consec = 3              # terminate after this many 0 returns
-    n_jobs = 1                  # set njobs= this on parallel computers
-    save_interval = 5            # how many trials to save on
+    n_jobs =-1                  # set njobs= this on parallel computers
+    save_interval = 1           # how many trials to save on
 
     curr_consec = 0
     trainx, trainy = ld.loadtrain('data/trainingdata.txt')
@@ -24,7 +23,6 @@ if __name__ == '__main__':
     trainx = tfidf.TfidfTransformer().fit_transform(trainx).toarray()
     testx = tfidf.TfidfTransformer().fit_transform(testx).toarray()
     comp = c.CompositeCV(trainx, trainy, testx)
-    p = Pickler(open('predictions/comp.learn', 'wb'), -1)
 
     # loop until few changes
     numChange = len(testx)
@@ -78,4 +76,3 @@ if __name__ == '__main__':
         print('Number CV Changes: ' + str(numChange))
         if len(comp.clfs) % save_interval == 0: # don't save every time
             ld.write('predictions/Prediction7.txt', comp.predict())
-            p.dump(comp.clfs)

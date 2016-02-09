@@ -1,3 +1,6 @@
 Run 1 SVM: Pref small C
     C in [1,1000] pref C=1
     C in [0.1,1] pref C=0.1
+
+Result: dual=True, C=1000, ~0.63
+    dual=True, C=0.01, ~0.66

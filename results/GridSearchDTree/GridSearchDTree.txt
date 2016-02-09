@@ -1,0 +1,7 @@
+Fit 1:
+    0.638099785152
+    {'max_features': 0.64000000000000012, 'min_samples_split': 5}
+
+Fit 2:
+    0.609930771067
+    {'max_depth': 7, 'max_features': 0.36000000000000004}

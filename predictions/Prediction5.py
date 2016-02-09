@@ -15,4 +15,6 @@ if __name__ == '__main__':
     clf = ens.RandomForestClassifier(max_features=0.38, criterion='entropy',
             n_estimators=5000, min_samples_split=7)
     clf.fit(trainx2, trainy)
-    ld.write('predictions/Prediction3.txt', clf.predict(testx2))
+    ld.write('predictions/Prediction5.txt', clf.predict(testx2))
+
+# score=0.51

@@ -110,6 +110,8 @@ Numerous initial learning algorithms were employed in an attempt to better chara
 
 \end{enumerate}
 
+Please note that many earlier iterations of models made their way into the final ensemble models as hyperparameter-tuned contributions to the bagged prediction. For instance, our SGD, SVM classifiers were both initial models that were submitted, but they were still used in the ensemble methods above.
+
 \section{Model Selection}
 
 The final two models were chosen to be the two ensemble bagging methods, both because they seemed to maximize performance of the three strongly predictive models that were run on the correct dataset and because they should have maximally decorreleated from any sampling bias or representation bias in the training dataset by allowing for over/underfitting and predictions from various different models each exhibiting various systematic training tendencies. 

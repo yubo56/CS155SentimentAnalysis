@@ -139,7 +139,7 @@ Another possible improvement is a weighted contribution to the prediction score 
 
 \section{Plots of CV hyperparameter optimization}
 
-Before discovering skikit's own grid hyperparameter space explorer, a custom parameter space exploration was coded. Some examples of these results are plotted below in \autoref{fig:aaa}.
+Before discovering skikit's own grid hyperparameter space explorer, a custom parameter space exploration was coded based on 5-fold CV score distributions. Some examples of these results are plotted below in \autoref{fig:aaa}. The result to draw from this particular hyperoptimization would have been that the fractional number of features to draw into the random forest is $\approx 0.38$ because it maximizes the mean CV score while not incurring too much extra variance. Note the graphs are a bit noisy, rendering this sort of technique somewhat unreliable.
 \begin{figure}[!h]
     \centering
     \begin{subfigure}{0.3\textwidth}
@@ -152,7 +152,7 @@ Before discovering skikit's own grid hyperparameter space explorer, a custom par
         \includegraphics[width=\textwidth]{images/testRFMaxFeatStDevs.png}
         \caption{Plot of standard deviation of CV score as function of fractional maximum number of features.}
     \end{subfigure}
-    \caption{Example of hyperparameter optimization using CV scores. Before going to sklearn's \texttt{GridSearchCV}.}
+    \caption{Example of hyperparameter optimization using CV scores for random forest, $100$ sub-trees. Before going to sklearn's \texttt{GridSearchCV}.}
     \label{fig:aaa}
 \end{figure}
 

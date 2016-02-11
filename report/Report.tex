@@ -1,4 +1,4 @@
-    \documentclass[10pt, preprint2]{aastex}
+    \documentclass[10pt]{article}
     \usepackage{fancyhdr, amsmath, amsthm, amssymb, mathtools, lastpage, hyperref, enumerate, graphicx, setspace, wasysym, listings}
     \usepackage[margin=1in]{geometry}
     \newcommand{\scinot}[2]{#1\times10^{#2}}
@@ -40,7 +40,8 @@
       Caltech CS/CNS/EE 155 \\[1pt]
       Sentiment Analysis}
 \author{Nancy Cao, Joanne Li, Yubo Su}
-\affil{California Institute of Technology, Pasadena, CA, 91125}
+\date{February 11, 2016}
+\maketitle
 
 \begin{abstract}
 In this study, we attempt to predict the sentiment of a speech based on a bag of words representation over 1000 common, stemmed words. A highly sparse training set of $4189$ speeches was used in order to predict sentiments on a testing dataset of $1000$ speeches. The final iteration of the model was able to attain $66.6, 66.7\%$ accuracy on both public and private components of the testing dataset respectively, indicating that no overfitting to the public dataset is observed. The final two submitted models comprised a bag of random models with slightly randomized parameters and a bag that aggregated models only that increased a 5-fold cross validation score.

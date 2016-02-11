@@ -2,3 +2,7 @@
 __pycache__/
 .*.swp
 test/*
+*.dat
+*.aux
+*.log
+*.out

@@ -28,6 +28,7 @@
     \DeclareMathOperator*{\argmax}{argmax}
     \DeclareMathOperator{\sgn}{sgn}
     \newcommand{\expvalue}[1]{\left<#1\right>}
+    \usepackage[font=scriptsize]{subcaption}
     \everymath{\displaystyle}
 
 \begin{document}
@@ -46,7 +47,6 @@
 \begin{abstract}
 In this study, we attempt to predict the sentiment of a speech based on a bag of words representation over 1000 common, stemmed words. A highly sparse training set of $4189$ speeches was used in order to predict sentiments on a testing dataset of $1000$ speeches. The final iteration of the model was able to attain $66.6, 66.7\%$ accuracy on both public and private components of the testing dataset respectively, indicating that no overfitting to the public dataset is observed. The final two submitted models comprised a bag of random models with slightly randomized parameters and a bag that aggregated models only that increased a 5-fold cross validation score.
 \end{abstract}
-\keywords{sentiment analysis, kaggle, caltech, 155, I need words to get the spacing right \frownie}
 
 \section{Overview}
 
@@ -63,7 +63,7 @@ The robustness of our approach is supported by our ability to converge to a lead
 
 \section{Data Manipulation}
 
-We implemented a term frequency-inverse document frequency (tf-idf) transformation, using the built in routine \texttt{sklearn.feature\_extraction} \texttt{.text.TfidfTransformer()} to perform the transformation. The class of tf-idf transformations is considered to be a heuristic that improves performance of learning algorithms on textual collections, as it weights words unique to a document more strongly than words shared across all documents. We also observed a small performance increase in implementing the tf-idf transformation at various stages of the testing process.
+We implemented a term frequency-inverse document frequency (tf-idf) transformation, using the built in routine \texttt{sklearn.feature\_extraction.text.TfidfTransformer()} to perform the transformation. The class of tf-idf transformations is considered to be a heuristic that improves performance of learning algorithms on textual collections, as it weights words unique to a document more strongly than words shared across all documents. We also observed a small performance increase in implementing the tf-idf transformation at various stages of the testing process.
 
 \section{Learning Algorithm}
 
@@ -134,6 +134,27 @@ Even as this argument is unjustified without extra data points, what is clear is
 A complete run of the CV-optimizing random ensemble would have probably improved our score, as with only 15 classifiers in the ensemble we would still expect to see large variance in the performance of the classifier, while with a more optimized ensemble it would both have better learned features in the dataset and be more robust to perturbations.
 
 Another possible improvement is a weighted contribution to the prediction score within the ensemble methods. For instance, when classifiers that are already ensemble-like in nature e.g. random forests are added to the ensemble, their predictions should be weighted more strongly than single decision trees, as they represent the prediction of multiple decision trees. The exact weighting would need to be further investigated, possibly another tunable hyperparameter.
+
+\appendix
+
+\section{Plots of CV hyperparameter optimization}
+
+Before discovering skikit's own grid hyperparameter space explorer, a custom parameter space exploration was coded. Some examples of these results are plotted below in \autoref{fig:aaa}.
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/testRFMaxFeatMeans.png}
+        \caption{Plot of mean CV score as function of fractional maximum number of features.}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/testRFMaxFeatStDevs.png}
+        \caption{Plot of standard deviation of CV score as function of fractional maximum number of features.}
+    \end{subfigure}
+    \caption{Example of hyperparameter optimization using CV scores. Before going to sklearn's \texttt{GridSearchCV}.}
+    \label{fig:aaa}
+\end{figure}
 
 \end{document}
 
